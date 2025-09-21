@@ -12,7 +12,7 @@ python -m venv .venv
 pip install -r requirements.txt
 `
 
-2. Create a local .env file (do NOT commit this file). Copy the variables from .env.example and fill in your real API key and endpoint:
+2. Create a local .env file. Copy the variables from .env.example and fill in your real API key and endpoint:
 
 `
 AZURE_OPENAI_API_KEY=your_real_key_here
@@ -26,34 +26,8 @@ AZURE_OPENAI_DEPLOYMENT=gpt-4o
 python "Class-1\AI Foundry\foundry_chat_bot.py"
 `
 
-## Activation options for PowerShell
-
-- Use the batch script (no policy change):
+## Activation option for PowerShell
 
 `powershell
 .\.venv\Scripts\activate.bat
 `
-
-- One-off bypass (temporary, safe for single command):
-
-`powershell
-PowerShell -ExecutionPolicy Bypass -NoProfile -Command ". .\.venv\Scripts\Activate.ps1"
-`
-
-- Persist for your user (RemoteSigned):
-
-`powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
-`
-
-## Security notes
-
-- Never commit .env or real API keys. This repo includes .env.example as a template and .gitignore excludes .env and .venv.
-- If an API key is ever exposed, rotate it immediately in the Azure portal.
-- For CI, store secrets in GitHub Actions secrets and reference them as ${{ secrets.AZURE_OPENAI_API_KEY }}.
-
-## Files of interest
-
-- Class-1/AI Foundry/foundry_chat_bot.py  the Gradio chat app and prompt setup.
-- .env.example  example environment variables (no secrets).
-
