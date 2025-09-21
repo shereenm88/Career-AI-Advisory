@@ -1,0 +1,6 @@
+﻿.env
+.env.local
+__pycache__/
+*.pyc
+.vscode/
+.env.example
